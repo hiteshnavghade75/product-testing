@@ -19,6 +19,16 @@ app.post('/api/products', async (req, res) => {
   }
 });
 
+app.get('/api/products', async (req, res) => {
+    try {
+      const products = await Product.find();
+      res.status(200).json(products);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+  
+
 const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
