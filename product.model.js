@@ -19,6 +19,11 @@ const productSchema = new mongoose.Schema({
     message: {
         type: String,
         required: [true, 'you have to type some message']
+    },
+    role: {
+        type: String,
+        enum: ['customer', 'business_partner', 'delivery_partner'], 
+        required: [true, 'you have to assign a role'] 
     }
 });
 
